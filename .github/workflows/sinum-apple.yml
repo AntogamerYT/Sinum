@@ -28,6 +28,6 @@ jobs:
       with: 
         name: sinum-apple
         path: |
-          build/libSinum_ios.dylib
-          build/libSinum_macos.dylib
+          iOS/build/libSinum_ios.dylib
+          iOS/build/libSinum_macos.dylib
           
