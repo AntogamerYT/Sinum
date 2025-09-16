@@ -1,0 +1,32 @@
+name: Build Sinum (Apple)
+
+on:
+  push:
+    branches:
+      - main
+      - feature/actions-build
+
+jobs:
+  build:
+    runs-on: macos-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Create build directory
+      run: mkdir -p build
+
+    - name: Build Sinum
+      run: |
+        cd iOS
+        ./build-mac.sh
+
+    - name: Upload Dylibs
+      uses: actions/upload-artifact@v4
+      with: 
+        name: sinum-apple
+        path: |
+          build/libSinum_ios.dylib
+          build/libSinum_macos.dylib
+          
