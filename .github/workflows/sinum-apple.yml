@@ -20,6 +20,7 @@ jobs:
     - name: Build Sinum
       run: |
         cd iOS
+        chmod +x build-mac.sh
         ./build-mac.sh
 
     - name: Upload Dylibs
